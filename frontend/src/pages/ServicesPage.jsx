@@ -1,38 +1,32 @@
 import { motion } from "framer-motion";
 import {
+  AlertCircle,
   ArrowRight,
   Baby,
   Brush,
   Check,
-  Crown,
   Gem,
+  Heart,
+  Smile,
   Sparkles,
   Stethoscope,
+  Syringe,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 35 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
-  },
-};
-
 const services = [
   {
-    icon: Stethoscope,
-    title: "General Dentistry",
+    icon: Gem,
+    title: "Dental Implants",
     description:
-      "Comprehensive preventive, restorative, and routine dental care to keep your teeth and gums healthy for life.",
-    path: "/general-dentistry",
+      "Permanent, natural-looking tooth replacement solutions engineered for comfort, stability, and aesthetics.",
+    path: "/dental-implants",
     points: [
-      "Preventive checkups & cleanings",
-      "Cavity fillings & tooth repair",
-      "Gum health & periodontal care",
+      "Single & multiple tooth replacement",
+      "Full arch restorations",
+      "Long-lasting & durable results",
     ],
   },
   {
@@ -48,27 +42,15 @@ const services = [
     ],
   },
   {
-    icon: Gem,
-    title: "Dental Implants",
+    icon: Syringe,
+    title: "Surgical Dentistry",
     description:
-      "Permanent, natural-looking tooth replacement solutions engineered for comfort, stability, and aesthetics.",
-    path: "/dental-implants",
+      "Advanced oral surgery and procedure services delivered with precision, safety, and utmost patient care.",
+    path: "/surgical-dentistry",
     points: [
-      "Single & multiple tooth replacement",
-      "Full arch restorations",
-      "Long-lasting & durable results",
-    ],
-  },
-  {
-    icon: Brush,
-    title: "Invisalign & Orthodontics",
-    description:
-      "Clear, comfortable aligner treatments and traditional options to straighten teeth discreetly.",
-    path: "/invisalign",
-    points: [
-      "Nearly invisible clear aligners",
-      "Customized digital treatment plans",
-      "Comfortable & removable design",
+      "Wisdom teeth & extractions",
+      "Bone grafting & sinus lifts",
+      "Surgical extractions & care",
     ],
   },
   {
@@ -84,15 +66,63 @@ const services = [
     ],
   },
   {
-    icon: Crown,
-    title: "Smile Makeover",
+    icon: Brush,
+    title: "Invisalign",
     description:
-      "A comprehensive, customized combination of aesthetic and restorative procedures for a radiant smile.",
-    path: "/cosmetic-dentistry",
+      "Clear, comfortable aligner treatments to straighten your teeth discreetly without traditional metal braces.",
+    path: "/invisalign",
     points: [
-      "Full aesthetic evaluation",
-      "Harmonized tooth shape & shade",
-      "Transformational results",
+      "Nearly invisible clear aligners",
+      "Customized digital treatment plans",
+      "Comfortable & removable design",
+    ],
+  },
+  {
+    icon: Smile,
+    title: "Orthodontics",
+    description:
+      "Comprehensive orthodontic solutions for properly aligned teeth and a healthy, beautifully balanced bite.",
+    path: "/orthodontics",
+    points: [
+      "Traditional & clear braces",
+      "Bite alignment & correction",
+      "Custom retainers & post-care",
+    ],
+  },
+  {
+    icon: AlertCircle,
+    title: "Emergency Dentistry",
+    description:
+      "Fast, compassionate dental care for toothaches, accidents, and sudden dental emergencies when you need it most.",
+    path: "/emergency-dentistry",
+    points: [
+      "Urgent pain relief & treatment",
+      "Trauma & broken tooth repair",
+      "Fast appointment availability",
+    ],
+  },
+  {
+    icon: Heart,
+    title: "Special Needs Dentistry",
+    description:
+      "Compassionate, tailored dental care designed to accommodate patients with physical, developmental, or sensory needs.",
+    path: "/special-needs-dentistry",
+    points: [
+      "Specialized patient-first care",
+      "Calm & supportive environment",
+      "Personalized treatment plans",
+    ],
+  },
+  {
+    icon: Stethoscope,
+    title: "General Dentistry",
+    description:
+      "Comprehensive preventive, restorative, and routine dental care to keep your teeth and gums healthy for life.",
+    path: "/general-dentistry",
+    points: [
+      "Preventive checkups & cleanings",
+      "Cavity fillings & tooth repair",
+      "Gum health & periodontal care",
     ],
   },
 ];
@@ -104,15 +134,15 @@ export default function ServicesPage() {
 
       <main className="min-h-screen overflow-hidden bg-[#faf8f4] text-[#2d2217] pt-[100px]">
         {/* HERO */}
-        <section className="relative px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <section className="relative px-5 py-12 sm:px-8 lg:px-12 lg:py-16">
           <div className="mx-auto max-w-[1400px] text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#ebdcb8] bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#c48f32]">
               <Sparkles size={14} />
-              Our Expertise
+              Our Services
             </span>
 
             <h1 className="mt-6 text-4xl font-extrabold sm:text-5xl lg:text-6xl">
-              Comprehensive Dental Care for <span className="text-[#c48f32]">Every Smile</span>
+              Best Dental Service <span className="text-[#c48f32]">For You</span>
             </h1>
 
             <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-black sm:text-lg">
@@ -122,7 +152,7 @@ export default function ServicesPage() {
         </section>
 
         {/* SERVICES GRID */}
-        <section className="bg-white px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <section className="bg-white px-5 py-12 sm:px-8 lg:px-12 lg:py-20">
           <div className="mx-auto max-w-[1400px]">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {services.map((service, index) => {
@@ -134,37 +164,36 @@ export default function ServicesPage() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.08 }}
-                    className="group flex flex-col justify-between rounded-[28px] border border-[#ebdcb8] bg-[#faf8f4] p-7 shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#c48f32] hover:bg-white hover:shadow-xl"
+                    transition={{ delay: index * 0.05 }}
+                    className="group flex flex-col justify-between rounded-[28px] border border-[#ebdcb8] bg-[#faf8f4] p-7 text-center shadow-sm transition duration-300 hover:-translate-y-2 hover:border-[#c48f32] hover:bg-white hover:shadow-xl"
                   >
                     <div>
-                      <div className="flex items-center justify-between">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[#b88228] shadow-sm transition duration-300 group-hover:bg-[#2d2217] group-hover:text-white">
-                          <Icon size={22} />
-                        </div>
-                        <span className="text-sm font-bold text-[#8f621a]">0{index + 1}</span>
+                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#f4ebd5] text-[#b88228] shadow-inner transition duration-300 group-hover:bg-[#2d2217] group-hover:text-white">
+                        <Icon size={28} />
                       </div>
 
-                      <h3 className="mt-6 text-xl font-bold text-[#2d2217]">{service.title}</h3>
-                      <p className="mt-3 text-sm leading-7 text-black">{service.description}</p>
+                      <h3 className="mt-5 text-xl font-bold text-[#2d2217]">{service.title}</h3>
+                      <p className="mt-3 text-sm leading-6 text-black/80">{service.description}</p>
 
-                      <div className="mt-5 space-y-2">
+                      <div className="mt-5 space-y-2 text-left">
                         {service.points.map((pt) => (
-                          <div key={pt} className="flex items-center gap-2 text-xs text-black">
-                            <Check size={14} className="text-[#c48f32]" />
+                          <div key={pt} className="flex items-center gap-2 text-xs text-black/80">
+                            <Check size={14} className="shrink-0 text-[#c48f32]" />
                             <span>{pt}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <Link
-                      to={service.path}
-                      className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#b88228] transition-all group-hover:text-[#2d2217]"
-                    >
-                      Explore Service
-                      <ArrowRight size={16} />
-                    </Link>
+                    <div className="mt-7 pt-2">
+                      <Link
+                        to={service.path}
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#c48f32] px-6 py-3 text-xs font-extrabold uppercase tracking-wider text-white shadow-md transition-all duration-300 hover:bg-[#2d2217] hover:shadow-lg"
+                      >
+                        <span>READ MORE</span>
+                        <ArrowRight size={15} />
+                      </Link>
+                    </div>
                   </motion.article>
                 );
               })}
@@ -173,7 +202,7 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA */}
-        <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+        <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
           <div className="mx-auto max-w-[1200px] rounded-[30px] bg-[#2d2217] px-6 py-12 text-center text-white sm:px-10 lg:py-16">
             <h2 className="text-3xl font-bold sm:text-4xl">Find the Right Care for Your Smile</h2>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/90">

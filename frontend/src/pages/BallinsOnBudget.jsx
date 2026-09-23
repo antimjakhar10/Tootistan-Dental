@@ -89,6 +89,60 @@ export default function BallinsOnBudget() {
         </div>
       </section>
 
+      {/* Ballin' On a Budget Feature Section */}
+      <section className="bg-[#faf8f4] py-12 lg:py-16 px-5 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          {/* Left Text Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="rounded-[2rem] bg-white p-8 sm:p-12 lg:p-14 shadow-sm flex flex-col justify-center text-center items-center border border-[#ebdcb8]/40"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-[#9e6f21] tracking-tight">
+              Ballin’ On a Budget
+            </h2>
+
+            <p className="mt-3 text-base sm:text-lg text-gray-500 font-medium">
+              Who says a beautiful smile can't be smart spending?
+            </p>
+
+            <div className="mt-8 space-y-6 text-base sm:text-lg leading-relaxed text-gray-700 max-w-xl">
+              <p>
+                True luxury isn't about spending more — it's about{" "}
+                <strong className="font-extrabold text-[#2d2217]">feeling valued.</strong>
+              </p>
+
+              <p>
+                At <strong className="font-extrabold text-[#2d2217]">Toothistan</strong>, every detail — from precision-driven technology to tranquil design — delivers a premium experience without inflated costs.
+              </p>
+
+              <p>
+                Because excellence should feel{" "}
+                <strong className="font-extrabold text-[#2d2217]">exclusive</strong>, not expensive.{" "}
+                <strong className="font-extrabold text-[#2d2217]">World-class Dentistry, yet at an Affordable Price.</strong>
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right Image Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="overflow-hidden rounded-[2rem] shadow-sm min-h-[350px] lg:min-h-[440px] relative"
+          >
+            <img
+              src="/image5.png"
+              alt="Clean & Safe Spaces"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Highlights */}
       <section className="px-5 py-12 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-[1200px]">

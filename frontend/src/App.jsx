@@ -30,10 +30,16 @@ import ProblemWeTreat from "./pages/ProblemWeTreat";
 import Appointments from "./pages/Appointments";
 import FAQs from "./pages/FAQs";
 import HomeInstructions from "./pages/HomeInstructions";
+import VideoLibrary from "./pages/VideoLibrary";
 
 import BeforeAfterPhotos from "./pages/BeforeAfterPhotos";
+import Testimonials from "./pages/Testimonials";
+
+import Blogs from "./pages/Blogs";
+import BlogDetail from "./pages/BlogDetail";
 
 import Contact from "./pages/Contact";
+import Socials from "./pages/Socials";
 
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -41,6 +47,10 @@ import AdminAppointments from "./pages/AdminAppointments";
 import AdminContacts from "./pages/AdminContacts";
 import AdminTestimonials from "./pages/AdminTestimonials";
 import AdminGallery from "./pages/AdminGallery";
+import AdminVideos from "./pages/AdminVideos";
+import AdminBlogs from "./pages/AdminBlogs";
+import AdminSocials from "./pages/AdminSocials";
+import AdminSettings from "./pages/AdminSettings";
 import AdminUsers from "./pages/AdminUsers";
 
 function App() {
@@ -83,8 +93,15 @@ function App() {
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/home-instructions" element={<HomeInstructions />} />
+        <Route path="/video-library" element={<VideoLibrary />} />
+
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blog/:slug" element={<BlogDetail />} />
+
+        <Route path="/socials" element={<Socials />} />
 
         <Route path="/before-after-photos" element={<BeforeAfterPhotos />} />
+        <Route path="/testimonials" element={<Testimonials />} />
 
         <Route path="/contact" element={<Contact />} />
 
@@ -99,6 +116,14 @@ function App() {
         <Route path="/admin/testimonials" element={<AdminTestimonials />} />
 
         <Route path="/admin/gallery" element={<AdminGallery />} />
+
+        <Route path="/admin/videos" element={<AdminVideos />} />
+
+        <Route path="/admin/blogs" element={<AdminBlogs />} />
+
+        <Route path="/admin/socials" element={<AdminSocials />} />
+
+        <Route path="/admin/settings" element={<AdminSettings />} />
 
         <Route path="/admin/users" element={<AdminUsers />} />
       </Routes>

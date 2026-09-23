@@ -16,6 +16,7 @@ import {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { submitAppointment } from "../services/api";
+import { useSettings } from "../context/SettingsContext";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
@@ -44,7 +45,18 @@ const doctors = [
   "Dr. Toothistan Specialist",
 ];
 
+const getTodayString = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
 function Appointments() {
+  const { settings } = useSettings();
+  const todayStr = getTodayString();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -61,6 +73,14 @@ function Appointments() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
+    if (name === "date" && value && value < todayStr) {
+      setStatus({
+        type: "error",
+        message: "Past dates cannot be selected for an appointment.",
+      });
+      return;
+    }
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -69,6 +89,15 @@ function Appointments() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formData.date && formData.date < todayStr) {
+      setStatus({
+        type: "error",
+        message: "Please select today's date or a future date for your appointment.",
+      });
+      return;
+    }
+
     setLoading(true);
     setStatus({ type: "", message: "" });
 
@@ -244,19 +273,19 @@ function Appointments() {
 
                     <div className="space-y-3">
                       <a
-                        href="tel:+918168062414"
+                        href={`tel:${settings.phone}`}
                         className="flex items-center gap-3 text-sm font-medium text-white transition hover:text-[#c48f32]"
                       >
                         <Phone size={17} />
-                        +91 81680 62414
+                        {settings.phone}
                       </a>
 
                       <a
-                        href="mailto:info@toothistan.com"
+                        href={`mailto:${settings.email}`}
                         className="flex items-center gap-3 text-sm font-medium text-white transition hover:text-[#c48f32]"
                       >
                         <Mail size={17} />
-                        info@toothistan.com
+                        {settings.email}
                       </a>
                     </div>
                   </div>
@@ -367,6 +396,7 @@ function Appointments() {
                         <input
                           type="date"
                           name="date"
+                          min={todayStr}
                           value={formData.date}
                           onChange={handleChange}
                           required
@@ -510,10 +540,10 @@ function Appointments() {
                   Talk To Our Team
                 </p>
                 <a
-                  href="tel:+918168062414"
+                  href={`tel:${settings.phone}`}
                   className="mt-1 block text-sm text-black transition hover:text-[#42311d]"
                 >
-                  +91 81680 62414
+                  {settings.phone}
                 </a>
               </div>
             </div>

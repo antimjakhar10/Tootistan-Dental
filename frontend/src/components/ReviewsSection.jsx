@@ -260,42 +260,6 @@ const ReviewsSection = () => {
             </div>
           </div>
         )}
-
-        {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="mt-8 grid overflow-hidden rounded-[26px] border border-[#ebdcb8] bg-[#faf8f4] sm:grid-cols-3"
-        >
-          <div className="border-b border-[#ebdcb8] px-6 py-6 text-center sm:border-b-0 sm:border-r">
-            <p className="text-3xl font-semibold tracking-tight text-[#2d2217]">
-              22K+
-            </p>
-            <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-black">
-              Smiles Transformed
-            </p>
-          </div>
-
-          <div className="border-b border-[#ebdcb8] px-6 py-6 text-center sm:border-b-0 sm:border-r">
-            <p className="text-3xl font-semibold tracking-tight text-[#2d2217]">
-              98%
-            </p>
-            <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-black">
-              Patient Satisfaction
-            </p>
-          </div>
-
-          <div className="px-6 py-6 text-center">
-            <p className="text-3xl font-semibold tracking-tight text-[#2d2217]">
-              4.9/5
-            </p>
-            <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-black">
-              Patient Rating
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

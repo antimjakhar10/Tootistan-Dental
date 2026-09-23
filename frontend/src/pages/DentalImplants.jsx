@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServiceFAQ from "../components/ServiceFAQ";
 
 const benefits = [
   {
@@ -355,6 +356,39 @@ const DentalImplants = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* FAQ SECTION */}
+        <ServiceFAQ
+          title="Dental Implants FAQs"
+          subtitle="Everything you need to know about getting permanent dental implants at Toothistan."
+          faqs={[
+            {
+              question: "What is a dental implant and how does it work?",
+              answer:
+                "A dental implant is a biocompatible titanium post surgically placed into the jawbone that acts as a strong, artificial tooth root for a natural-looking replacement crown, bridge, or denture.",
+            },
+            {
+              question: "Are dental implants permanent?",
+              answer:
+                "Yes! With proper oral hygiene, regular cleanings, and routine checkups, dental implants are designed to last a lifetime, making them the most durable tooth replacement option available.",
+            },
+            {
+              question: "Is the dental implant procedure painful?",
+              answer:
+                "The procedure is performed under local anesthesia, so you will feel no pain during surgery. Mild post-operative soreness is normal and easily managed with prescribed or standard medication.",
+            },
+            {
+              question: "How long does the dental implant process take?",
+              answer:
+                "The process usually takes between 3 to 6 months, which allows time for the implant to securely integrate with your jawbone (osseointegration) before the final custom crown is attached.",
+            },
+            {
+              question: "Am I a good candidate for dental implants?",
+              answer:
+                "Most adults with healthy gums and sufficient jawbone density are excellent candidates. During your consultation, we perform 3D imaging to determine the ideal plan for your smile.",
+            },
+          ]}
+        />
 
         {/* CTA */}
         <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-20">

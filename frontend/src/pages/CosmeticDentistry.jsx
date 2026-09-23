@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServiceFAQ from "../components/ServiceFAQ";
 
 const fadeUp = {
   hidden: {
@@ -354,7 +355,7 @@ export default function CosmeticDentistry() {
         </section>
 
         {/* Comfort */}
-        <section className="px-5 py-16 sm:px-8 md:py-20 lg:px-10">
+        {/* <section className="px-5 py-16 sm:px-8 md:py-20 lg:px-10">
           <div className="mx-auto max-w-[1000px] text-center">
             <motion.div
               variants={fadeUp}
@@ -388,7 +389,40 @@ export default function CosmeticDentistry() {
               </Link>
             </motion.div>
           </div>
-        </section>
+        </section> */}
+
+        {/* FAQ SECTION */}
+        <ServiceFAQ
+          title="Cosmetic Dentistry FAQs"
+          subtitle="Everything you need to know about enhancing your smile at Toothistan."
+          faqs={[
+            {
+              question: "What treatments are included in Cosmetic Dentistry?",
+              answer:
+                "Cosmetic dentistry includes professional teeth whitening, porcelain veneers, dental bonding, tooth reshaping, gum contouring, and full smile makeovers tailored to your personal aesthetic goals.",
+            },
+            {
+              question: "How long does professional teeth whitening last?",
+              answer:
+                "Results typically last between 1 to 3 years depending on your diet and habits. Avoiding stain-causing foods like coffee, tea, and red wine helps maintain long-lasting brightness.",
+            },
+            {
+              question: "What is the difference between porcelain veneers and dental bonding?",
+              answer:
+                "Dental bonding uses composite resin sculpted directly onto teeth in one visit, while veneers are custom porcelain shells made in a lab that offer superior durability and stain resistance.",
+            },
+            {
+              question: "Will cosmetic dental treatments damage my natural teeth?",
+              answer:
+                "No. Cosmetic treatments at Toothistan are designed to be minimally invasive, preserving maximum natural tooth structure while enhancing overall strength and appearance.",
+            },
+            {
+              question: "Can cosmetic dentistry fix crooked or gapped teeth?",
+              answer:
+                "Yes! Minor gaps or misalignment can be corrected quickly with dental bonding or veneers, while moderate alignment needs may involve Invisalign prior to cosmetic finishing.",
+            },
+          ]}
+        />
 
         {/* CTA */}
         <section className="px-5 pb-20 sm:px-8 md:pb-28 lg:px-10">

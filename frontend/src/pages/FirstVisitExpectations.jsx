@@ -70,6 +70,69 @@ const comfortPoints = [
   "Clear communication about your care",
 ];
 
+const tourItems = [
+  {
+    title: "Easy Parking",
+    image: "/image1.png",
+    description:
+      "You'll find plenty of parking spaces close to our clinic, making it simple and stress-free for you to park when you arrive for your visit.",
+  },
+  {
+    title: "Warm Welcome",
+    image: "/image2.png",
+    description:
+      "Step inside and meet our friendly team who will help you check in quickly using easy digital forms—no waiting or hassle.",
+  },
+  {
+    title: "Reception Area",
+    image: "/image3.png",
+    description:
+      "Relax in our comfortable lounge while you wait—usually less than five minutes—with a calm space designed just for you.",
+  },
+  {
+    title: "Fun Zone for Kids",
+    image: "/image4.png",
+    description:
+      "Our children's area is full of toys and special surprises, so your little ones can enjoy their visit and feel happy.",
+  },
+  {
+    title: "Clean & Safe Spaces",
+    image: "/image5.png",
+    description:
+      "We keep all areas super clean with top sterilization practices to protect your health and make you feel safe.",
+  },
+  {
+    title: "Latest Dental Technology",
+    image: "/image6.jpg",
+    description:
+      "Using the latest technology, we make sure every treatment is precise, quick, and comfortable for you.",
+  },
+  {
+    title: "Comfortable Washrooms",
+    image: "/image7.png",
+    description:
+      "Our restrooms are designed to give you a touch of comfort and convenience during your visit.",
+  },
+  {
+    title: "Peaceful Treatment Rooms",
+    image: "/image8.png",
+    description:
+      "Enjoy calm treatment rooms with lovely garden views to help you feel relaxed and at ease during your care.",
+  },
+  {
+    title: "Friendly Team Support",
+    image: "/image9.png",
+    description:
+      "Our skilled dental professionals are here to support you at every step, making sure you feel cared for and comfortable.",
+  },
+  {
+    title: "Easy Payment Help",
+    image: "/image10.png",
+    description:
+      "Talk with our financial coordinator who will explain treatment costs clearly and help with insurance questions.",
+  },
+];
+
 export default function FirstVisitExpectations() {
   return (
     <>
@@ -256,6 +319,79 @@ export default function FirstVisitExpectations() {
                 />
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        {/* A TOUR OF TOOTHISTAN SECTION */}
+        <section className="bg-white py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-12">
+          <div className="mx-auto max-w-[1280px]">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12 sm:mb-16"
+            >
+              <h2 className="text-3xl font-extrabold text-[#111827] sm:text-4xl lg:text-5xl">
+                A Tour of Toothistan
+              </h2>
+            </motion.div>
+
+            {/* Top 8 Items (2 rows of 4 on desktop) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 sm:gap-y-14">
+              {tourItems.slice(0, 8).map((item, idx) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.05 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="w-48 h-56 sm:w-52 sm:h-60 mb-5 overflow-hidden rounded-lg shadow-sm">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#111827] mb-2 sm:text-xl">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed max-w-[260px] mx-auto">
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom 2 Items (Centered below) */}
+            <div className="mt-12 sm:mt-14 flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12 lg:gap-16">
+              {tourItems.slice(8).map((item, idx) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (idx + 8) * 0.05 }}
+                  className="flex flex-col items-center text-center max-w-[280px] sm:max-w-[260px]"
+                >
+                  <div className="w-48 h-56 sm:w-52 sm:h-60 mb-5 overflow-hidden rounded-lg shadow-sm">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#111827] mb-2 sm:text-xl">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed max-w-[260px] mx-auto">
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 

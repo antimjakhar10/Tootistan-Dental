@@ -14,8 +14,10 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { submitContact } from "../services/api";
+import { useSettings } from "../context/SettingsContext";
 
 const Contact = () => {
+  const { settings } = useSettings();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -126,13 +128,13 @@ const Contact = () => {
                   <p className="text-sm font-semibold">Our Clinic</p>
 
                   <p className="mt-1 text-sm leading-6 text-white/90">
-                    TOOTHISTAN – Facial Esthetic & Dental Clinic
-                    <br />
-                    SCF-212, Near Khetarpal Hospital
-                    <br />
-                    Green Square Market
-                    <br />
-                    Hisar, Haryana 125001
+                    {settings.address}
+                    {settings.cityState && (
+                      <>
+                        <br />
+                        {settings.cityState}
+                      </>
+                    )}
                   </p>
                 </div>
               </div>
@@ -147,10 +149,10 @@ const Contact = () => {
                   <p className="text-sm font-semibold">Call Us</p>
 
                   <a
-                    href="tel:+918168062414"
+                    href={`tel:${settings.phone}`}
                     className="mt-1 block text-sm text-white/90 transition hover:text-white"
                   >
-                    +91 81680 62414
+                    {settings.phone}
                   </a>
                 </div>
               </div>
@@ -165,10 +167,10 @@ const Contact = () => {
                   <p className="text-sm font-semibold">Email Us</p>
 
                   <a
-                    href="mailto:info@toothistan.com"
+                    href={`mailto:${settings.email}`}
                     className="mt-1 block text-sm text-white/90 transition hover:text-white"
                   >
-                    info@toothistan.com
+                    {settings.email}
                   </a>
                 </div>
               </div>
@@ -183,11 +185,11 @@ const Contact = () => {
                   <p className="text-sm font-semibold">Opening Hours</p>
 
                   <p className="mt-1 text-sm leading-6 text-white/90">
-                    Monday to Saturday
+                    {settings.weekdayHours}
                     <br />
-                    8:00 AM – 9:00 PM
+                    {settings.weekendHours}
                     <br />
-                    Sunday – Closed
+                    {settings.sundayHours}
                   </p>
                 </div>
               </div>
@@ -195,7 +197,7 @@ const Contact = () => {
 
             {/* PHONE BUTTON */}
             <a
-              href="tel:+918168062414"
+              href={`tel:${settings.phone}`}
               className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#2d2217] transition hover:bg-[#f7f0e3]"
             >
               <Phone className="h-4 w-4" />

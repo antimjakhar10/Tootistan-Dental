@@ -12,19 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
-const locations = [
-  {
-    title: "Toothistan Facial Esthetic & Dental Clinic",
-    address:
-      "SCF-212, Near Khetarpal Hospital, Green Square Market, Hisar, Haryana 125001",
-  },
-  {
-    title: "CMC Hospital Branch",
-    address:
-      "Dental Department, Room No. 7, Near Dabra Chowk, CMC Multispeciality Hospital, Hisar, Haryana 125001",
-  },
-];
+import { useSettings } from "../context/SettingsContext";
 
 const facilities = [
   {
@@ -44,13 +32,27 @@ const facilities = [
   },
 ];
 
-const hours = [
-  { days: "Monday – Tuesday", time: "9:00 AM – 6:00 PM" },
-  { days: "Wednesday – Saturday", time: "8:00 AM – 5:00 PM" },
-  { days: "Sunday", time: "Closed" },
-];
-
 const OurOffice = () => {
+  const { settings } = useSettings();
+
+  const locations = [
+    {
+      title: "Toothistan Facial Esthetic & Dental Clinic",
+      address: `${settings.address}${settings.cityState ? `, ${settings.cityState}` : ""}`,
+    },
+    {
+      title: "CMC Hospital Branch",
+      address:
+        "Dental Department, Room No. 7, Near Dabra Chowk, CMC Multispeciality Hospital, Hisar, Haryana 125001",
+    },
+  ];
+
+  const hours = [
+    { days: "Weekdays", time: settings.weekdayHours || "9:00 AM – 6:00 PM" },
+    { days: "Weekends", time: settings.weekendHours || "8:00 AM – 5:00 PM" },
+    { days: "Sunday", time: settings.sundayHours || "Closed" },
+  ];
+
   return (
     <>
       <Navbar />
@@ -96,7 +98,7 @@ const OurOffice = () => {
                 </Link>
 
                 <a
-                  href="tel:+918168062414"
+                  href={`tel:${settings.phone}`}
                   className="inline-flex items-center gap-2 rounded-full border border-[#ebdcb8] bg-white px-6 py-3.5 text-sm font-bold text-[#2d2217] transition hover:border-[#42311d] hover:text-[#42311d]"
                 >
                   <Phone size={17} />
@@ -117,8 +119,8 @@ const OurOffice = () => {
                   alt="Modern dental clinic"
                   className="h-[420px] w-full rounded-[25px] object-cover sm:h-[520px]"
                 />
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -304,11 +306,11 @@ const OurOffice = () => {
                 </p>
 
                 <a
-                  href="tel:+918168062414"
+                  href={`tel:${settings.phone}`}
                   className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-[#2d2217] transition hover:bg-[#e5b757]"
                 >
                   <Phone size={17} />
-                  +91 81680 62414
+                  {settings.phone}
                 </a>
               </div>
 
@@ -391,13 +393,7 @@ const OurOffice = () => {
                     {item.days}
                   </span>
 
-                  <span
-                    className={`text-sm font-bold ${
-                      item.time === "Closed"
-                        ? "text-slate-400"
-                        : "text-[#42311d]"
-                    }`}
-                  >
+                  <span className="text-sm font-bold text-[#42311d]">
                     {item.time}
                   </span>
                 </div>
@@ -432,7 +428,7 @@ const OurOffice = () => {
               </Link>
 
               <a
-                href="tel:+918168062414"
+                href={`tel:${settings.phone}`}
                 className="inline-flex items-center gap-2 rounded-full border border-[#ebdcb8] bg-white px-7 py-3.5 text-sm font-bold text-[#2d2217] transition hover:border-[#42311d] hover:text-[#42311d]"
               >
                 <Phone size={17} />

@@ -46,6 +46,44 @@ const promises = [
   "Comfort-focused patient experience",
 ];
 
+const signatureSuites = [
+  {
+    icon: "🔍",
+    title: "Scan Station",
+    subtitle: "See Clearly. Plan Confidently.",
+    text: "Your journey starts here—with advanced intraoral scanning, digital records, and clear visuals of your oral health. No mess. No discomfort. Just quick, accurate diagnostics to lay the foundation for your treatment.",
+    tags: "💻 Advanced technology | Zero gag | Instant results",
+  },
+  {
+    icon: "💬",
+    title: "Smile Planning Suite",
+    subtitle: "Where Conversations Shape Smiles.",
+    text: "This serene, private space is dedicated to smile planning. Here, we review your scans, answer your questions, and design a treatment plan together. No pressure—just clarity, guidance, and real possibilities.",
+    tags: "👤 Private | Transparent | Collaborative",
+  },
+  {
+    icon: "🐯",
+    title: "Tiny Tooth Town",
+    subtitle: "For Little Teeth with Big Smiles.",
+    text: "Fun, colorful, and totally child-friendly, this operatory is made just for kids. Whether it's their first visit or a filling, children feel safe, curious, and even excited to be here.",
+    tags: "🎈 Playful vibe | Friendly faces | Fear-free care",
+  },
+  {
+    icon: "🦷",
+    title: "Root Republic",
+    subtitle: "Root Canal? Relax. We've Got You.",
+    text: "This high-tech operatory is built for painless, precise endodontic treatments. With rotary tools, magnification, and calming comforts like Netflix and aromatherapy, it's where serious care meets complete calm.",
+    tags: "💡 Pain-free | Tech-enabled | Quietly comforting",
+  },
+  {
+    icon: "🩺",
+    title: "Implant Embassy",
+    subtitle: "Surgical Precision in a Calm Setting.",
+    text: "Designed for implants, extractions, and facial surgeries, this suite blends OT-level sterilization with a peaceful, reassuring environment. You'll feel informed, cared for, and absolutely at ease.",
+    tags: "🩺 Advanced surgery | Impeccable hygiene | Soft ambiance",
+  },
+];
+
 const PatientsComfort = () => {
   return (
     <>
@@ -216,6 +254,125 @@ const PatientsComfort = () => {
                 </motion.div>
               );
             })}
+          </div>
+        </section>
+
+        {/* Our Signature Suites Section */}
+        <section className="bg-white py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-12 border-t border-[#ebdcb8]/30">
+          <div className="mx-auto max-w-[1280px]">
+            {/* Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-14 sm:mb-16"
+            >
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-2xl">🛏️</span>
+                <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-[#9e6f21]">
+                  Our Signature Suites
+                </h2>
+              </div>
+
+              <p className="text-base sm:text-lg font-semibold text-gray-700 mt-2">
+                Every Room Designed with Purpose. Every Visit Filled with Comfort.
+              </p>
+
+              <p className="text-sm sm:text-base text-gray-500 leading-relaxed mt-4">
+                At Toothistan, each room is more than just a space — it's a carefully curated experience. From diagnostics to surgery, every suite offers advanced care in a setting that feels safe, private, and luxurious.
+              </p>
+            </motion.div>
+
+            {/* Top 3 Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+              {signatureSuites.slice(0, 3).map((suite, idx) => (
+                <motion.div
+                  key={suite.title}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="rounded-2xl border border-[#ebdcb8]/40 bg-[#faf8f4] p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-xl">{suite.icon}</span>
+                      <h3 className="text-lg sm:text-xl font-bold text-[#9e6f21]">
+                        {suite.title}
+                      </h3>
+                    </div>
+
+                    <h4 className="text-sm sm:text-base font-bold text-[#111827] mb-3">
+                      {suite.subtitle}
+                    </h4>
+
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {suite.text}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-[#ebdcb8]/30">
+                    <p className="text-xs font-semibold text-[#a37027]">
+                      {suite.tags}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom 2 Cards (Centered) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-6 sm:gap-8 mt-6 sm:mt-8">
+              {signatureSuites.slice(3).map((suite, idx) => (
+                <motion.div
+                  key={suite.title}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (idx + 3) * 0.08 }}
+                  className="rounded-2xl border border-[#ebdcb8]/40 bg-[#faf8f4] p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-xl">{suite.icon}</span>
+                      <h3 className="text-lg sm:text-xl font-bold text-[#9e6f21]">
+                        {suite.title}
+                      </h3>
+                    </div>
+
+                    <h4 className="text-sm sm:text-base font-bold text-[#111827] mb-3">
+                      {suite.subtitle}
+                    </h4>
+
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {suite.text}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-[#ebdcb8]/30">
+                    <p className="text-xs font-semibold text-[#a37027]">
+                      {suite.tags}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Tagline below */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mt-14 sm:mt-16 text-sm sm:text-base text-gray-700 leading-relaxed"
+            >
+              <p>
+                Every suite at <strong className="font-extrabold text-[#2d2217]">Toothistan</strong> is crafted for your care.
+              </p>
+              <p className="text-gray-500 mt-1">
+                Because dentistry should feel personal, not clinical.
+              </p>
+            </motion.div>
           </div>
         </section>
 

@@ -14,28 +14,28 @@ const trustItems = [
     number: "01",
     title: "Modern Tools",
     description:
-      "Advanced dental technology and digital precision for smarter, more comfortable treatment.",
+      "At Toothistan, technology feels like care. Our advanced digital tools and smooth techniques turn dental visits into effortless experiences — accurate, gentle, and relaxing every time.",
   },
   {
     icon: Sparkles,
     number: "02",
     title: "Calm Space",
     description:
-      "A peaceful, thoughtfully designed environment that helps you feel relaxed from the moment you arrive.",
+      "Every corner is designed to soothe your senses — warm lighting, soft scents, and cozy interiors that calm the mind. Step in, breathe easy, and let serenity take over completely.",
   },
   {
     icon: ShieldCheck,
     number: "03",
     title: "Strict Hygiene",
     description:
-      "World-class sterilization and uncompromising hygiene standards at every step of your care.",
+      "We follow global sterilization standards to protect every smile. Hygiene here is more than a process — it’s a daily ritual of care, safety, and respect for your complete well-being.",
   },
   {
     icon: Heart,
     number: "04",
     title: "Gentle Care",
     description:
-      "Compassionate dentistry focused on comfort, trust and a completely patient-first experience.",
+      "Every treatment begins with understanding and ends in comfort. Our team listens, reassures, and ensures your visit is smooth, pain-free, and filled with compassion from start to finish.",
   },
 ];
 

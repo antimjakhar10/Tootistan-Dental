@@ -6,11 +6,15 @@ import {
   MessageSquare,
   Star,
   Images,
+  Film,
+  FileText,
+  Settings,
   Mail,
   Users,
   LogOut,
   Menu,
   X,
+  Share2,
 } from "lucide-react";
 
 const menuItems = [
@@ -30,6 +34,11 @@ const menuItems = [
     icon: MessageSquare,
   },
   {
+    label: "Blogs & Articles",
+    path: "/admin/blogs",
+    icon: FileText,
+  },
+  {
     label: "Testimonials",
     path: "/admin/testimonials",
     icon: Star,
@@ -40,9 +49,19 @@ const menuItems = [
     icon: Images,
   },
   {
-    label: "Users",
-    path: "/admin/users",
-    icon: Users,
+    label: "Video Library",
+    path: "/admin/videos",
+    icon: Film,
+  },
+  {
+    label: "Social Feed",
+    path: "/admin/socials",
+    icon: Share2,
+  },
+  {
+    label: "Clinic Settings",
+    path: "/admin/settings",
+    icon: Settings,
   },
 ];
 

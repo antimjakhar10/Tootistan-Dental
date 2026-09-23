@@ -4,7 +4,7 @@ import { LockKeyhole, Mail, ArrowRight } from "lucide-react";
 
 const API_URL =
   import.meta.env.VITE_API_URL ||
-  "http://localhost:5000/api";
+  "https://tootistan-dental.onrender.com/api";
 
 const AdminLogin = () => {
   const navigate = useNavigate();

@@ -29,20 +29,20 @@ const differentiators = [
   {
     icon: Waves,
     number: "01",
-    title: "A Calm, Spa-Like Experience",
-    text: "We have reshaped the dental environment to feel calm and reassuring rather than clinical and intimidating.",
+    title: "Private Suites",
+    text: "You can relax in our private rooms. They offer comfort, style, and complete privacy while we provide top dental care just for you.",
   },
   {
     icon: HeartHandshake,
     number: "02",
-    title: "Gentle, Personal Care",
-    text: "Every patient is different. We listen, explain, reassure, and shape the experience around individual comfort.",
+    title: "Advanced Technology",
+    text: "We use the newest tools and techniques to treat you quickly and carefully. This helps make your visit smooth and pain-free.",
   },
   {
     icon: Zap,
     number: "03",
-    title: "Modern Digital Precision",
-    text: "Advanced digital tools and modern techniques help support accurate planning and a smoother treatment journey.",
+    title: "Patient Comfort",
+    text: "We add soothing scents, soft music, and fun entertainment to keep you calm and happy throughout your appointment.",
   },
   {
     icon: ShieldCheck,
@@ -53,14 +53,14 @@ const differentiators = [
   {
     icon: Stethoscope,
     number: "05",
-    title: "Comprehensive Dental Care",
-    text: "From everyday oral care to aesthetic and more complex treatments, our approach is designed around your dental needs.",
+    title: "Redefining the Dental Experience",
+    text: "We want to change how you feel about the dentist. With our friendly staff, warm space, and focus on your comfort, every visit feels easy and stress-free.",
   },
   {
     icon: Sparkles,
     number: "06",
-    title: "Dentistry as Self-Care",
-    text: "We believe visiting the dentist can be something you look forward to — comfortable, thoughtful, and confidence-building.",
+    title: "Quality Care Within Reach",
+    text: "At Toothistan, you get the best care every time. Our calm clinic and top tools make sure you feel great and get great results.",
   },
 ];
 
@@ -71,6 +71,17 @@ const experiencePoints = [
   "Strong focus on hygiene",
   "Personalized treatment approach",
   "Clear communication and guidance",
+];
+
+const calmChecklist = [
+  "Minimally invasive, painless treatments",
+  "Relaxing music & Netflix during procedures",
+  "Essential oil aromatherapy & warm towel pampering",
+  "Private suites for full emotional ease",
+  "Sedation options for added comfort",
+  "Gentle, compassionate doctors who explain everything",
+  "Personalized post-op care & support",
+  "Clear, transparent pricing & planning",
 ];
 
 export default function WhatSetsUsApart() {
@@ -190,6 +201,76 @@ export default function WhatSetsUsApart() {
                 your dental journey.
               </p>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How We Help You Feel Calm Section */}
+      <section className="bg-white py-16 sm:py-20 lg:py-24 px-5 sm:px-8 lg:px-12 border-t border-slate-100">
+        <div className="mx-auto max-w-[1280px] grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left Column Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-6 overflow-hidden rounded-[32px] shadow-lg h-[400px] sm:h-[480px] border-4 border-white bg-[#f4ebd5] relative"
+          >
+            <img
+              src="/image8.png"
+              alt="Peaceful Treatment Room"
+              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            />
+          </motion.div>
+
+          {/* Right Column Checklist & Quote */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-6 space-y-6"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-[#111827] tracking-tight">
+              How We Help You Feel Calm
+            </h2>
+
+            {/* Checklist */}
+            <div className="space-y-3 pt-2">
+              {calmChecklist.map((item, idx) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  className="flex items-center gap-3"
+                >
+                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gray-300 text-gray-700">
+                    <Check size={12} strokeWidth={2.5} />
+                  </div>
+                  <span className="text-sm sm:text-base text-gray-700 font-medium">
+                    {item}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Bottom Quote Box */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-xs relative"
+            >
+              <span className="text-3xl font-serif text-[#c48f32] block leading-none mb-1">
+                “
+              </span>
+              <p className="text-sm sm:text-base italic font-semibold text-gray-800">
+                Our goal is simple: You feel safe, informed, and totally at ease.
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </section>

@@ -11,6 +11,10 @@ const authRoutes = require("./routes/authRoutes");
 const testimonialRoutes = require("./routes/testimonialRoutes");
 const galleryRoutes = require("./routes/galleryRoutes");
 const newsletterRoutes = require("./routes/newsletterRoutes");
+const videoRoutes = require("./routes/videoRoutes");
+const settingsRoutes = require("./routes/settingsRoutes");
+const blogRoutes = require("./routes/blogRoutes");
+const socialRoutes = require("./routes/socialRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 
 dotenv.config();
@@ -55,6 +59,10 @@ app.use("/api/appointments", appointmentRoutes);
 app.use("/api/testimonials", testimonialRoutes);
 app.use("/api/gallery", galleryRoutes);
 app.use("/api/newsletter", newsletterRoutes);
+app.use("/api/videos", videoRoutes);
+app.use("/api/socials", socialRoutes);
+app.use("/api/settings", settingsRoutes);
+app.use("/api/blogs", blogRoutes);
 
 app.use("/api/admin", adminRoutes);
 

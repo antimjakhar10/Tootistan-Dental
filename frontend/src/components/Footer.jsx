@@ -17,21 +17,28 @@ import {
   Phone,
   Sparkles,
 } from "lucide-react";
+import { useSettings } from "../context/SettingsContext";
 
 const Footer = () => {
+  const { settings } = useSettings();
   const services = [
-    { label: "General Dentistry", to: "/general-dentistry" },
-    { label: "Cosmetic Dentistry", to: "/cosmetic-dentistry" },
     { label: "Dental Implants", to: "/dental-implants" },
-    { label: "Invisalign", to: "/invisalign" },
+    { label: "Cosmetic Dentistry", to: "/cosmetic-dentistry" },
+    { label: "Surgical Dentistry", to: "/surgical-dentistry" },
     { label: "Pediatric Dentistry", to: "/pediatric-dentistry" },
-    { label: "Smile Gallery", to: "/before-after-photos" },
+    { label: "Invisalign", to: "/invisalign" },
+    { label: "Orthodontics", to: "/orthodontics" },
+    { label: "Emergency Dentistry", to: "/emergency-dentistry" },
+    { label: "Special Needs Dentistry", to: "/special-needs-dentistry" },
+    { label: "General Dentistry", to: "/general-dentistry" },
   ];
 
   const quickLinks = [
     { label: "Home", to: "/" },
     { label: "About Us", to: "/about" },
     { label: "Services", to: "/services" },
+    { label: "Dental Blogs", to: "/blogs" },
+    { label: "Social Feed", to: "/socials" },
     { label: "Meet The Team", to: "/meet-the-team" },
     { label: "First Visit", to: "/first-visit-expectations" },
     { label: "Contact Us", to: "/contact" },
@@ -72,7 +79,7 @@ const Footer = () => {
           >
             <Link to="/" className="inline-flex items-center">
               <img
-                src="/logo.png"
+                src="/logo1.png"
                 alt="Toothistan - Expert Dental Care"
                 className="h-16 w-auto object-contain sm:h-[72px]"
               />
@@ -88,12 +95,12 @@ const Footer = () => {
             <div className="mt-7 flex items-center gap-2.5">
               <SocialButton
                 icon={<MessageCircle size={17} />}
-                href="https://wa.me/918168062414"
+                href={`https://wa.me/${settings.whatsapp}`}
                 label="WhatsApp"
               />
               <SocialButton
                 icon={<Mail size={17} />}
-                href="mailto:info@toothistan.com"
+                href={`mailto:${settings.email}`}
                 label="Email"
               />
               <SocialButton
@@ -166,19 +173,19 @@ const Footer = () => {
             <div className="space-y-5">
               <ContactInfo
                 icon={<Phone size={16} />}
-                text="+91 81680 62414"
-                href="tel:+918168062414"
+                text={settings.phone}
+                href={`tel:${settings.phone}`}
               />
 
               <ContactInfo
                 icon={<Mail size={16} />}
-                text="info@toothistan.com"
-                href="mailto:info@toothistan.com"
+                text={settings.email}
+                href={`mailto:${settings.email}`}
               />
 
               <ContactInfo
                 icon={<MapPin size={16} />}
-                text="SCF-212, Near Khetarpal Hospital, Green Square Market, Hisar, Haryana 125001"
+                text={`${settings.address}${settings.cityState ? `, ${settings.cityState}` : ""}`}
               />
             </div>
           </motion.div>
@@ -203,8 +210,8 @@ const Footer = () => {
               </p>
 
               <p className="mt-1 text-sm text-white/85">
-                Mon-Tue 9 AM-6 PM&nbsp;&nbsp; • &nbsp;&nbsp;Wed-Sat 8 AM-5 PM
-                &nbsp;&nbsp; • &nbsp;&nbsp;Sunday Closed
+                {settings.weekdayHours}&nbsp;&nbsp; • &nbsp;&nbsp;{settings.weekendHours}
+                &nbsp;&nbsp; • &nbsp;&nbsp;{settings.sundayHours}
               </p>
             </div>
           </div>

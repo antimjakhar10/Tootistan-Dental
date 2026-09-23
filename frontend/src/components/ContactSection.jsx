@@ -13,8 +13,20 @@ import {
   Loader2,
 } from "lucide-react";
 import { submitAppointment } from "../services/api";
+import { useSettings } from "../context/SettingsContext";
+
+const getTodayString = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
 
 const ContactSection = () => {
+  const { settings } = useSettings();
+  const todayStr = getTodayString();
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -29,6 +41,15 @@ const ContactSection = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "date" && value && value < todayStr) {
+      setStatus({
+        type: "error",
+        message: "Past dates cannot be selected for an appointment.",
+      });
+      return;
+    }
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -37,6 +58,15 @@ const ContactSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formData.date && formData.date < todayStr) {
+      setStatus({
+        type: "error",
+        message: "Please select today's date or a future date for your appointment.",
+      });
+      return;
+    }
+
     setLoading(true);
     setStatus({ type: "", message: "" });
 
@@ -136,11 +166,11 @@ const ContactSection = () => {
               </a>
 
               <a
-                href="tel:+918168062414"
+                href={`tel:${settings.phone}`}
                 className="inline-flex w-fit items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10"
               >
                 <Phone size={17} />
-                +91 81680 62414
+                {settings.phone}
               </a>
             </div>
           </div>
@@ -179,21 +209,21 @@ const ContactSection = () => {
               <ContactItem
                 icon={<Phone size={18} />}
                 title="Call Us"
-                value="+91 81680 62414"
-                href="tel:+918168062414"
+                value={settings.phone}
+                href={`tel:${settings.phone}`}
               />
 
               <ContactItem
                 icon={<Mail size={18} />}
                 title="Email Us"
-                value="info@toothistan.com"
-                href="mailto:info@toothistan.com"
+                value={settings.email}
+                href={`mailto:${settings.email}`}
               />
 
               <ContactItem
                 icon={<MapPin size={18} />}
                 title="Our Clinic"
-                value="SCF-212, Near Khetarpal Hospital, Green Square Market, Hisar, Haryana 125001"
+                value={`${settings.address}${settings.cityState ? `, ${settings.cityState}` : ""}`}
               />
             </div>
 
@@ -209,23 +239,23 @@ const ContactSection = () => {
 
               <div className="space-y-2.5 text-xs text-black">
                 <div className="flex justify-between gap-4">
-                  <span>Monday - Tuesday</span>
+                  <span>Weekdays</span>
                   <span className="font-semibold text-[#2d2217]">
-                    9:00 AM - 6:00 PM
+                    {settings.weekdayHours}
                   </span>
                 </div>
 
                 <div className="flex justify-between gap-4">
-                  <span>Wednesday - Saturday</span>
+                  <span>Weekends</span>
                   <span className="font-semibold text-[#2d2217]">
-                    8:00 AM - 5:00 PM
+                    {settings.weekendHours}
                   </span>
                 </div>
 
                 <div className="flex justify-between gap-4">
                   <span>Sunday</span>
-                  <span className="font-semibold text-red-400">
-                    Closed
+                  <span className="font-semibold text-[#2d2217]">
+                    {settings.sundayHours}
                   </span>
                 </div>
               </div>
@@ -346,6 +376,7 @@ const ContactSection = () => {
                   <input
                     type="date"
                     name="date"
+                    min={todayStr}
                     value={formData.date}
                     onChange={handleChange}
                     required

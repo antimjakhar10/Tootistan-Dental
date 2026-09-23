@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServiceFAQ from "../components/ServiceFAQ";
 
 const carePoints = [
   {
@@ -361,6 +362,39 @@ const SpecialNeedsDentistry = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* FAQ SECTION */}
+        <ServiceFAQ
+          title="Special Needs Dentistry FAQs"
+          subtitle="Supportive, compassionate information for patients and caregivers."
+          faqs={[
+            {
+              question: "What makes Special Needs Dentistry different at Toothistan?",
+              answer:
+                "We provide individualized care tailored for patients with physical, intellectual, developmental, or sensory conditions, ensuring extra time, patience, adaptive techniques, and accessible clinic facilities.",
+            },
+            {
+              question: "Can family members or caregivers stay in the treatment room?",
+              answer:
+                "Absolutely! Caregivers and family members are always encouraged to stay by the patient's side to offer familiarity, comfort, and emotional reassurance throughout the appointment.",
+            },
+            {
+              question: "How do you prepare a patient with sensory sensitivities for a visit?",
+              answer:
+                "We offer familiarization visits, quiet appointment scheduling, dimmed lighting, noise-canceling accommodations, and gentle, step-by-step communication to eliminate anxiety.",
+            },
+            {
+              question: "Are your dental facilities wheelchair accessible?",
+              answer:
+                "Yes. Our clinic features step-free access, wide hallways, spacious treatment rooms, and specialized transfer assistance for maximum comfort and safety.",
+            },
+            {
+              question: "What sedation options are available for special needs patients?",
+              answer:
+                "Depending on medical history and comfort requirements, we provide nitrous oxide (laughing gas), oral conscious sedation, or IV sedation managed safely by dental anesthesiologists.",
+            },
+          ]}
+        />
 
         {/* CTA */}
         <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-20">

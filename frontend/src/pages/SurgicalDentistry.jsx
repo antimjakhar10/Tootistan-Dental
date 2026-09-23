@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServiceFAQ from "../components/ServiceFAQ";
 
 const carePoints = [
   {
@@ -422,6 +423,39 @@ const SurgicalDentistry = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* FAQ SECTION */}
+        <ServiceFAQ
+          title="Surgical Dentistry FAQs"
+          subtitle="Clear answers about oral surgery, wisdom teeth extractions, and post-op care."
+          faqs={[
+            {
+              question: "What common procedures fall under Surgical Dentistry?",
+              answer:
+                "Surgical dentistry covers wisdom teeth extractions, complex tooth extractions, bone grafting, sinus lifts, root apicoectomies, and pre-prosthetic oral surgeries.",
+            },
+            {
+              question: "How should I prepare for a dental surgery procedure?",
+              answer:
+                "We provide clear pre-op instructions, which may include fasting if sedation is used, arranging transport home, and reviewing any medications with your surgeon prior to treatment.",
+            },
+            {
+              question: "How long is the recovery period after oral surgery?",
+              answer:
+                "Initial healing usually takes 3 to 7 days, with full soft tissue recovery over a few weeks. Following post-operative care instructions will ensure a smooth, comfortable healing process.",
+            },
+            {
+              question: "What sedation options are available for surgical procedures?",
+              answer:
+                "We offer local anesthesia as well as gentle sedation options to ensure complete pain management, comfort, and peace of mind during your entire procedure.",
+            },
+            {
+              question: "What should I eat after oral surgery?",
+              answer:
+                "Stick to soft, cool foods such as yogurt, smoothies, mashed potatoes, and lukewarm soups for the first 48 hours. Avoid hot, crunchy, or spicy foods, and avoid drinking through a straw.",
+            },
+          ]}
+        />
 
         {/* CTA */}
         <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-20">

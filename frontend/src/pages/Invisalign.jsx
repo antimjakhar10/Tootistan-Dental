@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServiceFAQ from "../components/ServiceFAQ";
 
 const benefits = [
   {
@@ -414,6 +415,39 @@ const Invisalign = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* FAQ SECTION */}
+        <ServiceFAQ
+          title="Invisalign FAQs"
+          subtitle="Clear answers about discreet clear aligners and your smile transformation."
+          faqs={[
+            {
+              question: "How does Invisalign work compared to metal braces?",
+              answer:
+                "Invisalign uses a series of custom, virtually invisible plastic aligner trays that apply gentle, targeted pressure to shift your teeth into proper alignment without metal wires or brackets.",
+            },
+            {
+              question: "How many hours a day do I need to wear my Invisalign aligners?",
+              answer:
+                "Aligners must be worn for 20 to 22 hours every day, removing them only when eating, drinking anything other than water, brushing, and flossing.",
+            },
+            {
+              question: "How long does Invisalign treatment usually take?",
+              answer:
+                "Most Invisalign treatment plans take between 6 to 18 months, depending on your individual alignment goals. Visible improvements often start showing within just a few weeks!",
+            },
+            {
+              question: "Are Invisalign clear aligners painful to wear?",
+              answer:
+                "You may feel slight pressure for the first 1-2 days after switching to a new tray, which is completely normal and shows that your teeth are moving as planned.",
+            },
+            {
+              question: "How do I clean and care for my aligners?",
+              answer:
+                "Rinse them with lukewarm water, gently brush them with a soft toothbrush, and use specialized Invisalign cleaning crystals to keep them crystal clear and odor-free.",
+            },
+          ]}
+        />
 
         {/* CTA */}
         <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-20">

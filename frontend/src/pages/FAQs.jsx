@@ -19,6 +19,7 @@ import {
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useSettings } from "../context/SettingsContext";
 
 const quickFaqs = [
   {
@@ -89,6 +90,11 @@ const categories = [
     label: "General Dentistry",
     icon: Stethoscope,
   },
+   {
+    id: "implants",
+    label: "Implants",
+    icon: Sparkles,
+  },
   {
     id: "pain",
     label: "Pain & Emergency",
@@ -103,11 +109,6 @@ const categories = [
     id: "restoration",
     label: "Teeth & Restoration",
     icon: ShieldCheck,
-  },
-  {
-    id: "implants",
-    label: "Implants",
-    icon: Sparkles,
   },
   {
     id: "cosmetic",
@@ -709,6 +710,7 @@ function FAQItem({ faq, index, open, onToggle }) {
 }
 
 function FAQs() {
+  const { settings } = useSettings();
   const [activeCategory, setActiveCategory] = useState("all");
   const [search, setSearch] = useState("");
   const [openQuick, setOpenQuick] = useState(null);
@@ -1047,7 +1049,7 @@ function FAQs() {
                 </p>
 
                 <a
-                  href="tel:+918168062414"
+                  href={`tel:${settings.phone}`}
                   className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#2d2217] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#42311d]"
                 >
                   Call Toothistan
@@ -1089,7 +1091,7 @@ function FAQs() {
               </div>
 
               <a
-                href="tel:+918168062414"
+                href={`tel:${settings.phone}`}
                 className="inline-flex h-13 items-center justify-center gap-2 rounded-xl bg-[#c48f32] px-7 py-4 text-sm font-bold text-[#2d2217] transition hover:bg-white"
               >
                 Call Toothistan
@@ -1137,7 +1139,7 @@ function FAQs() {
                   </a>
 
                   <a
-                    href="tel:+918168062414"
+                    href={`tel:${settings.phone}`}
                     className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#2d2217]/15 bg-white px-7 py-4 text-sm font-bold text-[#2d2217] transition hover:bg-[#2d2217] hover:text-white"
                   >
                     Talk To Our Team

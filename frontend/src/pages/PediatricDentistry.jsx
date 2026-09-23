@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServiceFAQ from "../components/ServiceFAQ";
 
 const carePoints = [
   {
@@ -424,6 +425,39 @@ const PediatricDentistry = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* FAQ SECTION */}
+        <ServiceFAQ
+          title="Pediatric Dentistry FAQs"
+          subtitle="Helpful answers for parents about gentle dental care for infants, kids, and teens."
+          faqs={[
+            {
+              question: "At what age should my child have their first dental visit?",
+              answer:
+                "We recommend scheduling your child's first dental visit when their first tooth appears, or by their first birthday.",
+            },
+            {
+              question: "How do you help children who feel anxious about the dentist?",
+              answer:
+                "Our team uses gentle tell-show-do methods, child-friendly explanations, fun distractions, and a warm environment to keep children calm and happy throughout their visit.",
+            },
+            {
+              question: "Are baby teeth really that important if they fall out anyway?",
+              answer:
+                "Yes! Primary (baby) teeth are vital for proper chewing, speech development, and guiding permanent adult teeth into their correct positions.",
+            },
+            {
+              question: "What are dental sealants and how do they protect kids' teeth?",
+              answer:
+                "Dental sealants are quick, painless protective coatings applied to the chewing surfaces of back molars to prevent food particles and bacteria from causing cavities.",
+            },
+            {
+              question: "How can I protect my child's teeth from cavities at home?",
+              answer:
+                "Help them brush twice daily with fluoride toothpaste, clean between teeth, limit sugary drinks and snacks, and bring them for regular checkups every 6 months.",
+            },
+          ]}
+        />
 
         {/* CTA */}
         <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-20">

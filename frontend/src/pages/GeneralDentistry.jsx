@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServiceFAQ from "../components/ServiceFAQ";
 
 const fadeUp = {
   hidden: {
@@ -118,72 +119,6 @@ export default function GeneralDentistry() {
                   className="h-[390px] w-full object-cover sm:h-[490px]"
                 />
             </div>
-          </motion.div>
-          </div>
-        </section>
-
-        {/* Main Introduction */}
-        <section className="px-5 py-16 sm:px-8 md:py-20 lg:px-10">
-          <div className="mx-auto max-w-[1200px]">
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]"
-            >
-              <div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#f7f0e3] px-4 py-2 text-sm font-semibold text-[#42311d]">
-                  <Sparkles size={16} />
-                  Everyday Dental Care
-                </span>
-
-                <h2 className="mt-5 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-                  Care that keeps your
-                  <span className="block text-[#42311d]">
-                    smile healthy.
-                  </span>
-                </h2>
-              </div>
-
-              <div className="space-y-5 text-base leading-8 text-black sm:text-lg">
-                <p>
-                  General dentistry is the foundation of a healthy smile. It
-                  focuses on taking care of your teeth and gums, maintaining
-                  good oral health, and identifying dental concerns before they
-                  become bigger problems.
-                </p>
-
-                <p>
-                  At Toothistan, our approach combines regular dental care with
-                  clear guidance and a gentle experience designed to help you
-                  feel comfortable throughout your visit.
-                </p>
-
-                <p className="font-medium text-[#2d2217]">
-                  From routine checkups and cleanings to addressing everyday
-                  dental concerns, our goal is simple — help you maintain a
-                  healthy smile for the long term.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Original Treatment Content */}
-        <section className="bg-slate-50 px-5 py-16 sm:px-8 md:py-20 lg:px-10">
-          <div className="mx-auto max-w-[1200px]">
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              className="max-w-3xl"
-            >
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#f7f0e3] px-4 py-2 text-sm font-semibold text-[#42311d]">
-                <Check size={16} />
-                What We Help With
-              </span>
           </motion.div>
           </div>
         </section>
@@ -376,6 +311,39 @@ export default function GeneralDentistry() {
             </div>
           </div>
         </section>
+
+        {/* FAQ SECTION */}
+        <ServiceFAQ
+          title="General Dentistry FAQs"
+          subtitle="Answers about routine cleanings, preventive care, and healthy teeth maintenance."
+          faqs={[
+            {
+              question: "What treatments are included under General Dentistry?",
+              answer:
+                "General dentistry encompasses comprehensive routine checkups, professional cleanings, digital X-rays, tooth-colored fillings, root canals, gum care, and preventive oral health guidance.",
+            },
+            {
+              question: "How often should I get a professional dental cleaning?",
+              answer:
+                "Most individuals should visit the dentist every 6 months for a professional cleaning and routine checkup to catch plaque, tartar, and early issues before they turn into complex problems.",
+            },
+            {
+              question: "Why are dental X-rays necessary if my teeth feel fine?",
+              answer:
+                "Digital X-rays reveal hidden dental issues impossible to see with the naked eye, such as cavity decay between teeth, bone loss around roots, infections, and impactions.",
+            },
+            {
+              question: "What is the best way to prevent cavities at home?",
+              answer:
+                "Brush twice daily with fluoride toothpaste, floss at least once daily, limit sugary snacks and drinks, stay hydrated, and visit Toothistan regularly for checkups.",
+            },
+            {
+              question: "What should I do if my gums bleed when I brush or floss?",
+              answer:
+                "Bleeding gums are a common sign of early gum inflammation (gingivitis). Schedule a professional cleaning and examination so our team can restore your gum health.",
+            },
+          ]}
+        />
 
         {/* CTA */}
         <section className="px-5 pb-20 sm:px-8 md:pb-28 lg:px-10">

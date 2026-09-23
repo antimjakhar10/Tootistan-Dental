@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServiceFAQ from "../components/ServiceFAQ";
 
 const options = [
   {
@@ -359,6 +360,39 @@ const Orthodontics = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* FAQ SECTION */}
+        <ServiceFAQ
+          title="Orthodontics FAQs"
+          subtitle="Learn about braces, bite correction, retainers, and orthodontic care."
+          faqs={[
+            {
+              question: "What is the best age to start orthodontic treatment?",
+              answer:
+                "An initial orthodontic evaluation is recommended around age 7. However, orthodontic treatments are highly effective for children, teenagers, and adults of all ages!",
+            },
+            {
+              question: "What types of braces options do you offer?",
+              answer:
+                "We offer traditional stainless steel braces, aesthetic ceramic (clear) braces, self-ligating braces, and clear removable aligner systems.",
+            },
+            {
+              question: "How long will I need to wear braces?",
+              answer:
+                "Most orthodontic treatments take between 12 to 24 months, depending on the complexity of teeth alignment and bite correction required.",
+            },
+            {
+              question: "Will wearing braces affect what foods I can eat?",
+              answer:
+                "You should avoid hard, sticky, or chewy foods (like hard candy, nuts, popcorn, and caramel) that could break brackets or bend archwires.",
+            },
+            {
+              question: "Why are retainers necessary after completing braces treatment?",
+              answer:
+                "Retainers prevent your teeth from naturally drifting back to their original positions while your surrounding jawbone and gum tissue stabilize.",
+            },
+          ]}
+        />
 
         {/* CTA */}
         <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-20">

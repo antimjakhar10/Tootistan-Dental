@@ -2,26 +2,29 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ToothBrushingMascot, ToothFlossMascot, FloatingMascotSticker } from "./DentalMascots";
 import {
+  AlertCircle,
   ArrowRight,
   ArrowUpRight,
   Baby,
   Brush,
-  Crown,
   Gem,
+  Heart,
+  Smile,
   Sparkles,
   Stethoscope,
+  Syringe,
 } from "lucide-react";
 
 const services = [
   {
     number: "01",
-    title: "General Dentistry",
+    title: "Dental Implants",
     description:
-      "Complete preventive and restorative dental care to keep your teeth healthy, strong and comfortable.",
-    icon: Stethoscope,
+      "Modern implant solutions designed to restore missing teeth with comfort, precision and natural-looking results.",
+    icon: Gem,
     image:
-      "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=900&q=85",
-    link: "/general-dentistry",
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=85",
+    link: "/dental-implants",
   },
   {
     number: "02",
@@ -35,26 +38,16 @@ const services = [
   },
   {
     number: "03",
-    title: "Dental Implants",
+    title: "Surgical Dentistry",
     description:
-      "Modern implant solutions designed to restore missing teeth with comfort, precision and natural-looking results.",
-    icon: Gem,
+      "Advanced oral surgery procedures performed with high precision, absolute care, and complete comfort.",
+    icon: Syringe,
     image:
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=85",
-    link: "/dental-implants",
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=85",
+    link: "/surgical-dentistry",
   },
   {
     number: "04",
-    title: "Invisalign",
-    description:
-      "Discreet and comfortable teeth straightening designed around your lifestyle and your smile goals.",
-    icon: Brush,
-    image:
-      "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=900&q=85",
-    link: "/invisalign",
-  },
-  {
-    number: "05",
     title: "Pediatric Dentistry",
     description:
       "Gentle and friendly dental care created to make every child's visit comfortable and stress-free.",
@@ -64,14 +57,54 @@ const services = [
     link: "/pediatric-dentistry",
   },
   {
-    number: "06",
-    title: "Smile Makeover",
+    number: "05",
+    title: "Invisalign",
     description:
-      "A personalized combination of treatments to create a healthier, brighter and more confident smile.",
-    icon: Crown,
+      "Discreet and comfortable clear aligner treatments designed around your lifestyle and your smile goals.",
+    icon: Brush,
     image:
-      "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=85",
-    link: "/cosmetic-dentistry",
+      "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=900&q=85",
+    link: "/invisalign",
+  },
+  {
+    number: "06",
+    title: "Orthodontics",
+    description:
+      "Comprehensive orthodontic care for properly aligned teeth and a healthy, beautifully balanced bite.",
+    icon: Smile,
+    image:
+      "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=900&q=85",
+    link: "/orthodontics",
+  },
+  {
+    number: "07",
+    title: "Emergency Dentistry",
+    description:
+      "Fast, compassionate dental care for sudden tooth pain, accidents, and urgent dental needs when you need it.",
+    icon: AlertCircle,
+    image:
+      "https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&w=900&q=85",
+    link: "/emergency-dentistry",
+  },
+  {
+    number: "08",
+    title: "Special Needs Dentistry",
+    description:
+      "Patient, compassionate dental care customized for individuals with physical or developmental considerations.",
+    icon: Heart,
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85",
+    link: "/special-needs-dentistry",
+  },
+  {
+    number: "09",
+    title: "General Dentistry",
+    description:
+      "Complete preventive and restorative dental care to keep your teeth healthy, strong and comfortable.",
+    icon: Stethoscope,
+    image:
+      "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=900&q=85",
+    link: "/general-dentistry",
   },
 ];
 

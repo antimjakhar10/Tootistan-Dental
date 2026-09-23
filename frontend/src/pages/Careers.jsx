@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useSettings } from "../context/SettingsContext";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 35 },
@@ -57,6 +58,7 @@ const qualities = [
 ];
 
 export default function Careers() {
+  const { settings } = useSettings();
   return (
     <div className="min-h-screen bg-white text-[#2d2217]">
 
@@ -92,7 +94,7 @@ export default function Careers() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="mailto:info@toothistan.com?subject=Career%20Enquiry%20-%20Toothistan"
+                href={`mailto:${settings.email}?subject=Career%20Enquiry%20-%20Toothistan`}
                 className="inline-flex items-center gap-2 rounded-full bg-[#2d2217] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#42311d]"
               >
                 Send Your Profile
@@ -321,7 +323,7 @@ export default function Careers() {
             </p>
 
             <a
-              href="mailto:info@toothistan.com?subject=Career%20Enquiry%20-%20Toothistan"
+              href={`mailto:${settings.email}?subject=Career%20Enquiry%20-%20Toothistan`}
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#2d2217] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#42311d]"
             >
               Email Your Profile
@@ -329,7 +331,7 @@ export default function Careers() {
             </a>
 
             <p className="mt-4 text-sm text-black">
-              info@toothistan.com
+              {settings.email}
             </p>
           </motion.div>
         </div>

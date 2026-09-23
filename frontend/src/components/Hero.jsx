@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ToothKingMascot, ToothCoolMascot, ToothFairyMascot, FloatingMascotSticker } from "./DentalMascots";
 import {
@@ -124,91 +125,30 @@ const Hero = () => {
               transition={{ delay: 0.35, duration: 0.55 }}
               className="mt-6 flex flex-wrap gap-3"
             >
-              <a
-                href="#appointment"
+              <Link
+                to="/services"
                 className="btn-shine group flex items-center gap-2 rounded-2xl bg-[#2d2217] px-5 py-3.5 text-sm font-bold text-white shadow-[0_14px_30px_rgba(45,34,23,0.2)] transition duration-300 hover:-translate-y-1 hover:bg-[#42311d] hover:shadow-[0_20px_40px_rgba(45,34,23,0.3)]"
               >
                 <CalendarDays size={16} />
 
-                Book Appointment
+                See all Services
 
                 <ArrowRight
                   size={16}
                   className="transition-transform duration-300 group-hover:translate-x-1"
                 />
-              </a>
+              </Link>
 
-              <a
-                href="#services"
+              <Link
+                to="/contact"
                 className="group flex items-center gap-2.5 rounded-2xl border border-[#ebdcb8] bg-white px-5 py-3.5 text-sm font-bold text-[#2d2217] shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#c48f32] hover:shadow-md"
               >
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f4ebd5] text-[#b88228] transition-transform duration-300 group-hover:scale-110">
                   <Play size={12} fill="currentColor" />
                 </span>
 
-                Explore Our Care
-              </a>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3"
-            >
-              <div>
-                <div className="flex gap-0.5">
-                  {[1, 2, 3, 4, 5].map((item) => (
-                    <Star
-                      key={item}
-                      size={13}
-                      fill="currentColor"
-                      className="text-[#c48f32]"
-                    />
-                  ))}
-                </div>
-
-                <p className="mt-1 text-[10px] font-semibold text-[#6b5a4b]">
-                  Trusted by our patients
-                </p>
-              </div>
-
-              <div className="h-9 w-px bg-[#ebdcb8]" />
-
-              <div>
-                <p className="font-display text-lg font-bold text-[#2d2217]">
-                  22K+
-                </p>
-
-                <p className="text-[9px] font-semibold uppercase tracking-wider text-[#8f621a]">
-                  Smiles transformed
-                </p>
-              </div>
-
-              <div className="h-9 w-px bg-[#ebdcb8]" />
-
-              <div>
-                <p className="font-display text-lg font-bold text-[#2d2217]">
-                  10+
-                </p>
-
-                <p className="text-[9px] font-semibold uppercase tracking-wider text-[#8f621a]">
-                  Years expertise
-                </p>
-              </div>
-
-              <div className="h-9 w-px bg-[#ebdcb8]" />
-
-              <div>
-                <p className="font-display text-lg font-bold text-[#2d2217]">
-                  98%
-                </p>
-
-                <p className="text-[9px] font-semibold uppercase tracking-wider text-[#8f621a]">
-                  Satisfaction
-                </p>
-              </div>
+                Contact Us
+              </Link>
             </motion.div>
           </motion.div>
 

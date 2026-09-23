@@ -22,6 +22,7 @@ import {
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useSettings } from "../context/SettingsContext";
 
 const categories = [
   "All Concerns",
@@ -327,6 +328,7 @@ function ConcernCard({ item, index }) {
 }
 
 export default function ProblemWeTreat() {
+  const { settings } = useSettings();
   const [activeCategory, setActiveCategory] = useState("All Concerns");
   const [openFaq, setOpenFaq] = useState(null);
 
@@ -546,7 +548,7 @@ export default function ProblemWeTreat() {
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <a
-                    href="tel:+918168062414"
+                    href={`tel:${settings.phone}`}
                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#e5b757] px-6 py-4 text-sm font-extrabold text-[#2d2217] transition hover:bg-white"
                   >
                     <Stethoscope size={17} />
@@ -554,7 +556,7 @@ export default function ProblemWeTreat() {
                   </a>
 
                   <a
-                    href="https://wa.me/918168062414"
+                    href={`https://wa.me/${settings.whatsapp}`}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#e5b757]/50 px-6 py-4 text-sm font-extrabold text-white transition hover:bg-white/10"
@@ -766,7 +768,7 @@ export default function ProblemWeTreat() {
                   </a>
 
                   <a
-                    href="https://wa.me/918168062414"
+                    href={`https://wa.me/${settings.whatsapp}`}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#e5b757]/50 px-7 py-4 text-sm font-extrabold text-white transition hover:bg-white/10"

@@ -8,11 +8,14 @@ import {
   ShieldCheck,
   Sparkles,
   Stethoscope,
+  Phone,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServiceFAQ from "../components/ServiceFAQ";
+import { useSettings } from "../context/SettingsContext";
 
 const carePoints = [
   {
@@ -84,6 +87,8 @@ const stagger = {
 };
 
 const EmergencyDentistry = () => {
+  const { settings } = useSettings();
+
   return (
     <>
       <Navbar />
@@ -121,9 +126,8 @@ const EmergencyDentistry = () => {
                 variants={fadeUp}
                 className="mt-7 max-w-2xl text-base leading-8 text-black sm:text-lg"
               >
-                Unexpected dental problems can be stressful. Toothistan
-                provides a calm, patient-focused approach to urgent dental
-                concerns and helps you understand the next step in your care.
+                {settings.emergencyText ||
+                  "Unexpected dental problems can be stressful. Toothistan provides a calm, patient-focused approach to urgent dental concerns and helps you understand the next step in your care."}
               </motion.p>
 
               <motion.div
@@ -139,10 +143,11 @@ const EmergencyDentistry = () => {
                 </Link>
 
                 <a
-                  href="tel:+918168062414"
+                  href={`tel:${settings.phone}`}
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-[#ebdcb8] bg-white px-6 py-3.5 text-sm font-semibold text-[#2d2217] transition hover:border-[#42311d] hover:text-[#42311d]"
                 >
-                  Call +91 81680 62414
+                  <Phone size={17} />
+                  Call {settings.phone}
                 </a>
               </motion.div>
             </motion.div>
@@ -162,8 +167,8 @@ const EmergencyDentistry = () => {
                   alt="Emergency dental care"
                   className="h-[430px] w-full rounded-[1.5rem] object-cover sm:h-[520px]"
                 />
-            </div>
-          </motion.div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -376,6 +381,39 @@ const EmergencyDentistry = () => {
           </div>
         </section>
 
+        {/* FAQ SECTION */}
+        <ServiceFAQ
+          title="Emergency Dentistry FAQs"
+          subtitle="Urgent answers for dental emergencies, acute tooth pain, and trauma care."
+          faqs={[
+            {
+              question: "What qualifies as a urgent dental emergency?",
+              answer:
+                "Severe toothaches, knocked-out teeth, cracked or broken teeth, uncontrollable mouth bleeding, facial swelling, or dental abscesses requiring immediate pain relief.",
+            },
+            {
+              question: "What should I do if a tooth is completely knocked out?",
+              answer:
+                "Pick up the tooth by the crown (never touch the root), gently rinse with water if dirty, try re-inserting it in the socket or submerge it in milk, and visit Toothistan immediately within 30-60 minutes!",
+            },
+            {
+              question: "Can I get a same-day emergency appointment at Toothistan?",
+              answer:
+                "Yes! We reserve emergency walk-in and same-day appointment slots specifically so patients in severe pain can be treated without delay.",
+            },
+            {
+              question: "How can I temporarily manage severe tooth pain at home before seeing the dentist?",
+              answer:
+                "Rinse gently with warm salt water, apply a cold compress to the cheek to reduce swelling, and take over-the-counter pain medication as directed. Avoid placing aspirin directly on your gums.",
+            },
+            {
+              question: "What should I do if a dental crown or filling falls off?",
+              answer:
+                "Keep the crown safe if retrieved, clean the area gently, avoid chewing on that side, and contact us right away so we can repair or recement it safely.",
+            },
+          ]}
+        />
+
         {/* CTA */}
         <section className="px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
           <motion.div
@@ -400,8 +438,7 @@ const EmergencyDentistry = () => {
                 </h2>
 
                 <p className="mt-4 leading-7 text-white/75">
-                  Contact Toothistan and let our team understand your dental
-                  concern.
+                  Contact Toothistan at {settings.phone} or email {settings.email} and let our team understand your dental concern.
                 </p>
               </div>
 

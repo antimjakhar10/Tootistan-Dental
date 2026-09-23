@@ -13,6 +13,8 @@ dist
 dist-ssr
 *.local
 
+public/cinematic.gif
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

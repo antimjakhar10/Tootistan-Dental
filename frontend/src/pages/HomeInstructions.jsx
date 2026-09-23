@@ -25,6 +25,7 @@ import {
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useSettings } from "../context/SettingsContext";
 
 const treatments = [
   {
@@ -692,6 +693,7 @@ function TreatmentCard({ treatment, index, open, setOpen }) {
 }
 
 function HomeInstructions() {
+  const { settings } = useSettings();
   const [activeFilter, setActiveFilter] = useState("all");
   const [search, setSearch] = useState("");
   const [openTreatment, setOpenTreatment] = useState(null);
@@ -766,7 +768,7 @@ function HomeInstructions() {
                   </a>
 
                   <a
-                    href="tel:+918168062414"
+                    href={`tel:${settings.phone}`}
                     className="inline-flex items-center gap-2 rounded-xl border border-[#2d2217]/15 bg-white px-6 py-3.5 text-sm font-bold text-[#2d2217] transition hover:bg-[#f7f0e3]"
                   >
                     Call Toothistan
@@ -966,7 +968,7 @@ function HomeInstructions() {
               </div>
 
               <a
-                href="tel:+918168062414"
+                href={`tel:${settings.phone}`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#c48f32] px-7 py-4 text-sm font-bold text-[#2d2217] transition hover:bg-white"
               >
                 Call Toothistan
@@ -1120,7 +1122,7 @@ function HomeInstructions() {
 
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                   <a
-                    href="tel:+918168062414"
+                    href={`tel:${settings.phone}`}
                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#2d2217] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#42311d]"
                   >
                     Call Toothistan

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { useSettings } from "../context/SettingsContext";
 
 const aboutLinks = [
   { name: "Meet The Team", path: "/meet-the-team" },
@@ -15,7 +16,7 @@ const aboutLinks = [
 ];
 
 const serviceLinks = [
-  { name: "Services", path: "/services" },
+  { name: "Explore All Services", path: "/services" },
   { name: "General Dentistry", path: "/general-dentistry" },
   { name: "Cosmetic Dentistry", path: "/cosmetic-dentistry" },
   { name: "Dental Implants", path: "/dental-implants" },
@@ -172,6 +173,7 @@ const Dropdown = ({
 };
 
 const Navbar = () => {
+  const { settings } = useSettings();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
 
@@ -238,6 +240,20 @@ const Navbar = () => {
           />
 
           <Link
+            to="/blogs"
+            className="text-[14px] font-semibold text-[#2d2217] transition hover:text-[#b88228]"
+          >
+            Blogs
+          </Link>
+
+          <Link
+            to="/socials"
+            className="text-[14px] font-semibold text-[#2d2217] transition hover:text-[#b88228]"
+          >
+            Socials
+          </Link>
+
+          <Link
             to="/contact"
             className="text-[14px] font-semibold text-[#2d2217] transition hover:text-[#b88228]"
           >
@@ -249,9 +265,9 @@ const Navbar = () => {
         <div className="hidden items-center gap-4 xl:flex">
           {/* CALL ICON */}
           <a
-            href="tel:+918168062414"
+            href={`tel:${settings.phone}`}
             aria-label="Call Toothistan"
-            title="Call Toothistan"
+            title={`Call Toothistan: ${settings.phone}`}
             className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f4ebd5] text-[#b88228] transition hover:scale-105 hover:bg-[#eedcb6]"
           >
             <Phone size={17} />
@@ -334,6 +350,24 @@ const Navbar = () => {
                 setOpenMenu={setOpenMenu}
               />
 
+              {/* BLOGS */}
+              <Link
+                to="/blogs"
+                onClick={closeMobileMenu}
+                className="block rounded-xl px-4 py-3 font-semibold text-[#2d2217] hover:bg-[#f4ebd5]"
+              >
+                Blogs
+              </Link>
+
+              {/* SOCIALS */}
+              <Link
+                to="/socials"
+                onClick={closeMobileMenu}
+                className="block rounded-xl px-4 py-3 font-semibold text-[#2d2217] hover:bg-[#f4ebd5]"
+              >
+                Socials
+              </Link>
+
               {/* CONTACT */}
               <Link
                 to="/contact"
@@ -349,7 +383,7 @@ const Navbar = () => {
               <div className="flex gap-3">
                 {/* CALL */}
                 <a
-                  href="tel:+918168062414"
+                  href={`tel:${settings.phone}`}
                   className="flex flex-1 items-center gap-3 rounded-xl bg-[#f8f3e8] px-4 py-3"
                 >
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f4ebd5] text-[#b88228]">
@@ -361,7 +395,7 @@ const Navbar = () => {
                       Call Toothistan
                     </p>
                     <p className="text-sm font-bold text-[#2d2217]">
-                      +91 81680 62414
+                      {settings.phone}
                     </p>
                   </div>
                 </a>
